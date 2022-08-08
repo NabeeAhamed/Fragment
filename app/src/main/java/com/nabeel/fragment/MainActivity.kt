@@ -4,14 +4,16 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
+    import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
+    import com.google.android.material.dialog.MaterialAlertDialogBuilder
+    import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity() {
+    class MainActivity : AppCompatActivity() {
     lateinit var btn: Button
     lateinit var activityInterface: ActivityInterface
+    var i = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,13 +22,16 @@ class MainActivity : AppCompatActivity() {
             AlertDialog.Builder(this).apply {
                 setTitle("select Color")
                 setPositiveButton("white") { _, _ ->
-                    activityInterface.ActivityInterface(1)
+                    activityInterface.setBackgroundColor(1, i)
+                    i++
                 }
                     setNegativeButton("purple") { _, _ ->
-                        activityInterface.ActivityInterface(2)
+                        activityInterface.setBackgroundColor(2, i)
+                        i++
                     }
                         setNeutralButton("Black") { _, _ ->
-                            activityInterface.ActivityInterface(3)
+                            activityInterface.setBackgroundColor(3, i)
+                            i++
                         }
 
                         }.show()
